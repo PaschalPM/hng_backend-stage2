@@ -26,7 +26,7 @@ const index = async (_, res) => {
 const show = async (req, res) => {
     try {
         const { user_id } = req.params
-        const person = await Person.findById(user_id, {_id:0})
+        const person = await Person.findById(user_id, { _id: 0 })
         if (!person) throw new Error()
         return res.status(200).json(person)
     } catch (e) {
@@ -45,7 +45,7 @@ const store = async (req, res) => {
         const body = req.body
         const person = new Person(body)
         person.save()
-        return res.status(201).json({id:person._id, name: person.name})
+        return res.status(201).json({ id: person._id, name: person.name })
     } catch (e) {
         res.status(400).json({ message: e.message })
     }
@@ -66,7 +66,7 @@ const update = async (req, res) => {
         const person = await Person.findById(user_id)
         person.name = body.name
         person.save()
-        return res.status(200).json({id:person._id, name: person.name})
+        return res.status(200).json({ id: person._id, name: person.name })
     } catch (e) {
         res.status(404).json({ message: 'User not found' })
     }
