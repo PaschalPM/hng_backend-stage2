@@ -61,7 +61,11 @@ To quickly start using this API, follow these simple steps:
 Your API will be accessible at http://localhost:5000 (or the specified port).
 
 That's it! You're now ready to use the API to manage person resources.
-    
+
+## Test API
+```bash
+npm test
+```
 ## Documentation
 > Link to [documentation]('https://github.com/PaschalPM/hng_backend-stage2/blob/main/DOCUMENTATION.md').
 
