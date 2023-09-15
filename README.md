@@ -67,7 +67,7 @@ That's it! You're now ready to use the API to manage person resources.
 npm test
 ```
 ## Documentation
-Link to [documentation]('https://github.com/PaschalPM/hng_backend-stage2/blob/main/DOCUMENTATION.md').
+Link to documentation: - https://github.com/PaschalPM/hng_backend-stage2/blob/main/DOCUMENTATION.md
 
 ## UML Diagram
-Link to [diagram]('https://excalidraw.com/#json=v0S6BiIBkwmj1jbaKrQQe,-TGlV4HKkBB7E0ScF4QJ7A').
+Link to diagram: - https://excalidraw.com/#json=v0S6BiIBkwmj1jbaKrQQe,-TGlV4HKkBB7E0ScF4QJ7A
