@@ -1,0 +1,730 @@
+{
+	"info": {
+		"_postman_id": "dc5c1d8b-5334-42e7-b199-bda020d22a63",
+		"name": "HNG-Persons Rest-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29106036"
+	},
+	"item": [
+		{
+			"name": "Add New Person",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 201', function(){\r",
+							"    pm.response.to.have.status(201)\r",
+							"})\r",
+							"\r",
+							"pm.test('Body must contain id and name', function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\")\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\")\r",
+							"})\r",
+							"\r",
+							"pm.test('Response is JSON', function(){\r",
+							"    pm.response.to.have.header('Content-Type')\r",
+							"    pm.response.to.have.jsonBody()\r",
+							"})\r",
+							"\r",
+							"pm.test('Expect Mark Essien as name', function(){\r",
+							"    pm.expect(pm.response.json().name).to.eql('Mark Essien')\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Mark Essien\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mark Essien\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}",
+							"host": [
+								"{{baseUrl}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Sep 2023 06:58:10 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"36-y8+AdFVNGPcj9wfs50dDYCT81UM\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Robots-Tag",
+							"value": "noindex"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "lhr1::iad1::mpmvm-1694761090244-020a90012fe2"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"650400827e00a61789aff304\",\n    \"name\": \"Mark Essien\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Persons",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status is 200', function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}",
+							"host": [
+								"{{baseUrl}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Age",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "114"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Sep 2023 06:58:25 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"72-5a0Qn5TLZpTA090W+24vkJMExsQ\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Robots-Tag",
+							"value": "noindex"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "lhr1::iad1::gx84c-1694761105403-959eb9d5865b"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"name\": \"Paschal Okafor\",\n        \"id\": \"65038c67a9e79d531269b828\"\n    },\n    {\n        \"name\": \"Mark Essien\",\n        \"id\": \"650400827e00a61789aff304\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get A Person",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status is 200', function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Ensure Body Contains id and name', function(){\r",
+							"    pm.response.to.have.jsonBody()\r",
+							"    pm.expect(pm.response.json().name).to.include(pm.globals.get(\"user_name\"))\r",
+							"    pm.expect(pm.response.text()).includes(\"id\")\r",
+							"    pm.expect(pm.response.text()).includes(\"name\")\r",
+							"})\r",
+							"\r",
+							"const url = pm.globals.get('baseUrl')\r",
+							"const user_id = pm.globals.get('user_id')\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    method: 'delete',\r",
+							"    url: `${url}/${user_id}`,\r",
+							"    headers:{\r",
+							"        'Content-Type': 'application/json'\r",
+							"    }\r",
+							"}, (err, res)=>{\r",
+							"    pm.globals.unset('user_id')\r",
+							"    pm.globals.unset('user_name')\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const person = {\r",
+							"    name: 'Test User'\r",
+							"}\r",
+							"pm.globals.set(\"user_name\", person.name)\r",
+							"\r",
+							"const url = pm.globals.get('baseUrl')\r",
+							"\r",
+							"const requestConfig = {\r",
+							"    method: 'POST',\r",
+							"    url,\r",
+							"    header: {\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify(person)\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"pm.sendRequest(requestConfig, (err, res)=>{\r",
+							"    if (err){\r",
+							"        console.log(err)\r",
+							"    } else {\r",
+							"        console.log('Person created successfully!')\r",
+							"        const body = res.json()\r",
+							"        console.log(body)\r",
+							"        pm.globals.set(\"user_id\", body.id)\r",
+							"    }\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/{{user_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://hng-backend-stage2-a5zv.vercel.app/api/65038c67a9e79d531269b828",
+							"protocol": "https",
+							"host": [
+								"hng-backend-stage2-a5zv",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"65038c67a9e79d531269b828"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Age",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 14 Sep 2023 22:51:29 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"39-vjF0FW8Aft+HdfpvIt/GU7N0zwo\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "lhr1::iad1::xgmlg-1694731889528-dd6aba84346d"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Paschal Okafor\",\n    \"id\": \"65038c67a9e79d531269b828\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Person",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status is 200', function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Ensure Body Contains id and name', function(){\r",
+							"    pm.response.to.have.jsonBody()\r",
+							"    pm.expect(pm.response.text()).includes(\"id\")\r",
+							"    pm.expect(pm.response.text()).includes(\"name\")\r",
+							"})\r",
+							"\r",
+							"pm.test('Name is changed', function(){\r",
+							"    pm.expect(pm.response.json().name).to.include('Haruna O. Haruna')\r",
+							"})\r",
+							"\r",
+							"\r",
+							"const url = pm.globals.get('baseUrl')\r",
+							"const user_id = pm.globals.get('user_id')\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    method: 'delete',\r",
+							"    url: `${url}/${user_id}`,\r",
+							"    headers:{\r",
+							"        'Content-Type': 'application/json'\r",
+							"    }\r",
+							"}, (err, res)=>{\r",
+							"    pm.globals.unset('user_id')\r",
+							"    pm.globals.unset('user_name')\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const person = {\r",
+							"    name: 'Test User'\r",
+							"}\r",
+							"pm.globals.set(\"user_name\", person.name)\r",
+							"\r",
+							"const url = pm.globals.get('baseUrl')\r",
+							"\r",
+							"const requestConfig = {\r",
+							"    method: 'POST',\r",
+							"    url,\r",
+							"    header: {\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify(person)\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"pm.sendRequest(requestConfig, (err, res)=>{\r",
+							"    if (err){\r",
+							"        console.log(err)\r",
+							"    } else {\r",
+							"        console.log('Person created successfully!')\r",
+							"        const body = res.json()\r",
+							"        console.log(body)\r",
+							"        pm.globals.set(\"user_id\", body.id)\r",
+							"    }\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Haruna O. Haruna\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/{{user_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response Example",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"SIR. MARK ESSIEN\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hng-backend-stage2-a5zv.vercel.app/api/65038ed2ff5d0e6ba0616aaf",
+							"protocol": "https",
+							"host": [
+								"hng-backend-stage2-a5zv",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"65038ed2ff5d0e6ba0616aaf"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 14 Sep 2023 22:54:30 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"3b-IuTsb2civ2oPSvvMQXDcqZqrmQs\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "lhr1::iad1::2jwv7-1694732070387-e2f5f5d53dae"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"65038ed2ff5d0e6ba0616aaf\",\n    \"name\": \"SIR. MARK ESSIEN\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Person",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status is 204', function(){\r",
+							"    pm.response.to.have.status(204)\r",
+							"})\r",
+							"\r",
+							"pm.globals.unset('user_id')\r",
+							"pm.globals.unset('user_name')"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const person = {\r",
+							"    name: 'Test User'\r",
+							"}\r",
+							"pm.globals.set(\"user_name\", person.name)\r",
+							"\r",
+							"const url = pm.globals.get('baseUrl')\r",
+							"\r",
+							"const requestConfig = {\r",
+							"    method: 'POST',\r",
+							"    url,\r",
+							"    header: {\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify(person)\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"pm.sendRequest(requestConfig, (err, res)=>{\r",
+							"    if (err){\r",
+							"        console.log(err)\r",
+							"    } else {\r",
+							"        console.log('Person created successfully!')\r",
+							"        const body = res.json()\r",
+							"        console.log(body)\r",
+							"        pm.globals.set(\"user_id\", body.id)\r",
+							"    }\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/{{user_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response Example",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://hng-backend-stage2-a5zv.vercel.app/api/65038ed2ff5d0e6ba0616aaf",
+							"protocol": "https",
+							"host": [
+								"hng-backend-stage2-a5zv",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"65038ed2ff5d0e6ba0616aaf"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 14 Sep 2023 22:55:09 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"2-3Sns9SSwMKZSYeMFnEirnh7LJYU\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "lhr1::iad1::257cb-1694732109187-ab6e7e7d6b61"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

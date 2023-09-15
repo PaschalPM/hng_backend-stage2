@@ -1,0 +1,15 @@
+{
+	"id": "43b5fca9-9875-4956-851a-8f2a522a602d",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "https://hng-backend-stage2-ocjuzdy8s-paschalpm.vercel.app/api",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2023-09-15T09:03:51.708Z",
+	"_postman_exported_using": "Postman/10.17.7"
+}
